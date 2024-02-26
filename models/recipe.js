@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 const RecipeSchema = new Schema({
     name: { type: String, required: true },
     ingr_list: [{ type: Schema.Types.ObjectId, ref: "Ingredient", required: true }],
-    prep_time: { type: "Double", required: true },
-    price: { type: Date },
+    prep_time: { type: String, required: true },
+    price: { type: Schema.Types.Number, required: true },
 });
 
 // Virtual for recipe's URL

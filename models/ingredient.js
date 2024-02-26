@@ -5,10 +5,9 @@ const Schema = mongoose.Schema;
 const IngredientSchema = new Schema({
     name: { type: String, required: true },
     type: { type: String, required: true },
-    cost: { type: "Double", required: true },
-    acq_date: { type: Date },
-    exp_date: { type: Date },
-    critical: { type: Double },
+    cost: { type: Schema.Types.Number, required: true },
+    quantity: { type: Schema.Types.Number, required: true},
+    critical: { type: Schema.Types.Number, required: true },
     supplier: { type: Schema.Types.ObjectId, ref: "Supplier" },
 });
 

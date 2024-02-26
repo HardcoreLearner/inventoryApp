@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 const RestaurantWareSchema = new Schema({
     name: { type: String, required: true },
     type: { type: String, required: true },
-    cost: { type: Double, required: true},
-    stock: { type: "Double", required: true },
+    cost: { type: Schema.Types.Number, required: true},
+    stock: { type: Schema.Types.Number, required: true },
     critical: { type: Double },
     supplier: { type: Schema.Types.ObjectId, ref: "Supplier" },
 });
