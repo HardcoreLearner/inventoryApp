@@ -7,7 +7,7 @@ const RestaurantWareSchema = new Schema({
     type: { type: String, required: true },
     cost: { type: Schema.Types.Number, required: true},
     stock: { type: Schema.Types.Number, required: true },
-    critical: { type: Double },
+    critical: { type: Schema.Types.Number, required: true },
     supplier: { type: Schema.Types.ObjectId, ref: "Supplier" },
 });
 

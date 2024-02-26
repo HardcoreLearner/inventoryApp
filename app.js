@@ -12,11 +12,13 @@ const app = express();
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
+const { mainModule } = require('process');
 mongoose.set("strictQuery", false);
 const mongoDB = process.env.MONGODB_URI;
 
 main().catch((err) => console.log(err));
 async function main() {
+  console.log(mongoDB);
   await mongoose.connect(mongoDB);
 }
 

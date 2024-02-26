@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-
+require("dotenv").config();
 console.log(
     'This script populates some test ingredients, recipes, restaurantwares and suppliers to your database. Specified database as argument - e.g.: node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority"'
   );
@@ -20,7 +20,7 @@ console.log(
   const mongoose = require("mongoose");
   mongoose.set("strictQuery", false);
   
-  const mongoDB = userArgs[0];
+  const mongoDB = process.env.MONGODB_URI;
   
   main().catch((err) => console.log(err));
   
@@ -108,9 +108,9 @@ console.log(
   async function createRestaurantWares() {
     console.log("Adding RestaurantWares");
     await Promise.all([
-      RestaurantWareCreate(0, "fork", "", 10, 40, 20, suppliers[2]),
-      RestaurantWareCreate(0, "knife", "", 10, 40, 20, suppliers[0]),
-      RestaurantWareCreate(0, "plate", "", 15, 30, 20, suppliers[1])
+      RestaurantWareCreate(0, "fork", "tableware", 10, 40, 20, suppliers[2]),
+      RestaurantWareCreate(0, "knife", "tableware", 10, 40, 20, suppliers[0]),
+      RestaurantWareCreate(0, "plate", "tableware", 15, 30, 20, suppliers[1])
     ]);
   }
   
