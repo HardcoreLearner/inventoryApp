@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Delete Restaurant Ware
+  p Are you sure you want to delete #{restaurantware.name}?
+  form(method="post")
+    input(type="hidden", name="restaurantwareid", value=restaurantware._id)
+    input(type="submit", value="Delete")

@@ -2,4 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  ul
+    li
+      a(href='/inventory/ingredients') Ingredients (#{ingredient_count})
+    li
+      a(href='/inventory/recipes') Recipes (#{recipe_count})
+    li
+      a(href='/inventory/restaurantwares') Restaurant Wares (#{restaurantware_count})
+    li
+      a(href='/inventory/suppliers') Suppliers (#{supplier_count})

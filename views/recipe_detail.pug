@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Recipe Detail
+  p Name: #{recipe.name}
+  p Preparation Time: #{recipe.prep_time}
+  p Price: #{recipe.price}
+  p Ingredients:
+    ul
+      each ingredient in recipe.ingr_list
+        li= ingredient.name

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  form(method="post")
+    label(for="name") Name:
+    input(type="text", name="name", value=recipe.name)
+    label(for="prep_time") Preparation Time:
+    input(type="text", name="prep_time", value=recipe.prep_time)
+    label(for="price") Price:
+    input(type="text", name="price", value=recipe.price)
+    label(for="ingr_list") Ingredients:
+    select(name="ingr_list" multiple)
+      each ingredient in ingredients
+        option(value=ingredient._id, selected=recipe.ingr_list.map(String).includes(ingredient._id.toString()))= ingredient.name
+    input(type="submit", value="Submit")

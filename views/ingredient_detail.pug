@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Ingredient Detail
+  p Name: #{ingredient.name}
+  p Type: #{ingredient.type}
+  p Cost: #{ingredient.cost}
+  p Quantity: #{ingredient.quantity}
+  p Critical: #{ingredient.critical}
+  p Supplier: #{ingredient.supplier.name}

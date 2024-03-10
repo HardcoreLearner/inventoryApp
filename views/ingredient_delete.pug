@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Delete Ingredient
+  p Are you sure you want to delete #{ingredient.name}?
+  form(method="post")
+    input(type="hidden", name="ingredientid", value=ingredient._id)
+    input(type="submit", value="Delete")

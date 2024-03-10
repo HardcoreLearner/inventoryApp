@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Recipe List
+  each recipe in recipe_list
+    div
+      a(href=recipe.url)= recipe.name
+      span= ` - Preparation Time: ${recipe.prep_time} - Price: ${recipe.price}`
+  // Add links to view details, update, and delete for each recipe

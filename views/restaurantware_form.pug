@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  form(method="post")
+    label(for="name") Name:
+    input(type="text", name="name", value=restaurantware.name)
+    label(for="type") Type:
+    input(type="text", name="type", value=restaurantware.type)
+    label(for="cost") Cost:
+    input(type="text", name="cost", value=restaurantware.cost)
+    label(for="stock") Stock:
+    input(type="text", name="stock", value=restaurantware.stock)
+    label(for="critical") Critical:
+    input(type="text", name="critical", value=restaurantware.critical)
+    label(for="supplier") Supplier:
+    select(name="supplier")
+      each supplier in suppliers
+        option(value=supplier._id, selected=(supplier._id.toString() === restaurantware.supplier._id.toString()))= supplier.name
+    input(type="submit", value="Submit")

@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Ingredient List
+  each ingredient in ingredient_list
+    div
+      a(href=ingredient.url)= ingredient.name
+      span= ` - Type: ${ingredient.type} - Supplier: ${ingredient.supplier.name}`
+  // Add links to view details, update, and delete for each ingredient

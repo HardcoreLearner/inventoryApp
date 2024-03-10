@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Restaurant Ware List
+  each restaurantware in restaurantware_list
+    div
+      a(href=restaurantware.url)= restaurantware.name
+      span= ` - Type: ${restaurantware.type} - Supplier: ${restaurantware.supplier.name}`
+  // Add links to view details, update, and delete for each restaurantware

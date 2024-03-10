@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  form(method="post")
+    label(for="name") Name:
+    input(type="text", name="name", value=supplier.name)
+    label(for="address") Address:
+    input(type="text", name="address", value=supplier.address)
+    label(for="tel") Telephone:
+    input(type="text", name="tel", value=supplier.tel)
+    input(type="submit", value="Submit")

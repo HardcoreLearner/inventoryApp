@@ -4,11 +4,21 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const compression = require('compression'); // Add this line for compression
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const inventoryRouter = require('./routes/inventory');
 
 const app = express();
+
+// Set up rate limiter: maximum of 20 requests per minute
+const RateLimit = require('express-rate-limit');
+const limiter = RateLimit({
+  windowMs: 1 * 60 * 1000,
+  max: 20,
+});
+
+app.use(limiter);
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
@@ -22,6 +32,9 @@ async function main() {
   await mongoose.connect(mongoDB);
 }
 
+// Set up compression
+app.use(compression()); // Compress all routes
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -33,7 +46,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/inventory', inventoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

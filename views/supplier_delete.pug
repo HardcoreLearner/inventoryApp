@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Delete Supplier
+  p Are you sure you want to delete #{supplier.name}?
+  form(method="post")
+    input(type="hidden", name="supplierid", value=supplier._id)
+    input(type="submit", value="Delete")
