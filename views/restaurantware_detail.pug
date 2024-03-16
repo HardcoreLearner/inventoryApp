@@ -8,3 +8,8 @@ block content
   p Stock: #{restaurantware.stock}
   p Critical: #{restaurantware.critical}
   p Supplier: #{restaurantware.supplier.name}
+
+  hr
+  p
+    a.btn.btn-primary(href=restaurantware.url+'/update') Update Restaurant Ware
+    a.btn.btn-danger(href=restaurantware.url+'/delete') Delete Restaurant Ware

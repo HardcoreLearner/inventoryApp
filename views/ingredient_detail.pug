@@ -1,10 +1,15 @@
 extends layout
 
 block content
-  h1 Ingredient Detail
-  p Name: #{ingredient.name}
+  h1 #{title}: #{ingredient.name}
   p Type: #{ingredient.type}
   p Cost: #{ingredient.cost}
   p Quantity: #{ingredient.quantity}
-  p Critical: #{ingredient.critical}
+  p Critical Level: #{ingredient.critical}
   p Supplier: #{ingredient.supplier.name}
+
+  hr
+  p
+    a(href=ingredient.url+'/update') Update Ingredient
+  p
+    a(href=ingredient.url+'/delete') Delete Ingredient

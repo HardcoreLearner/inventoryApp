@@ -3,10 +3,18 @@ extends layout
 block content
   h1= title
   form(method="post")
-    label(for="name") Name:
-    input(type="text", name="name", value=supplier.name)
-    label(for="address") Address:
-    input(type="text", name="address", value=supplier.address)
-    label(for="tel") Telephone:
-    input(type="text", name="tel", value=supplier.tel)
+    div.form-group
+      label(for="name") Name:
+      input#name.form-control(type="text", name="name", value=(supplier && supplier.name) ? supplier.name : '')
+    div.form-group
+      label(for="address") Address:
+      input#address.form-control(type="text", name="address", value=(supplier && supplier.address) ? supplier.address : '')
+    div.form-group
+      label(for="tel") Telephone:
+      input#tel.form-control(type="text", name="tel", value=(supplier && supplier.tel) ? supplier.tel : '')
     input(type="submit", value="Submit")
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

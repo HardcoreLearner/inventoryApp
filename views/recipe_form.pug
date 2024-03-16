@@ -2,15 +2,26 @@ extends layout
 
 block content
   h1= title
-  form(method="post")
-    label(for="name") Name:
-    input(type="text", name="name", value=recipe.name)
-    label(for="prep_time") Preparation Time:
-    input(type="text", name="prep_time", value=recipe.prep_time)
-    label(for="price") Price:
-    input(type="text", name="price", value=recipe.price)
-    label(for="ingr_list") Ingredients:
-    select(name="ingr_list" multiple)
+
+  form(method='POST')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', placeholder='Recipe name' name='name' required value=(undefined===recipe ? '' : recipe.name))
+    div.form-group
+      label(for='prep_time') Preparation Time:
+      input#prep_time.form-control(type='text', placeholder='Preparation time' name='prep_time' required value=(undefined===recipe ? '' : recipe.prep_time))
+    div.form-group
+      label(for='price') Price:
+      input#price.form-control(type='text', placeholder='Recipe price' name='price' required value=(undefined===recipe ? '' : recipe.price))
+    div.form-group
+      label(for='ingr_list') Ingredients:
       each ingredient in ingredients
-        option(value=ingredient._id, selected=recipe.ingr_list.map(String).includes(ingredient._id.toString()))= ingredient.name
-    input(type="submit", value="Submit")
+        div.form-check
+          input.form-check-input(type='checkbox', id=`ingr_${ingredient._id}`, name='ingr_list', value=ingredient._id, checked=(recipe && recipe.ingr_list && recipe.ingr_list.map(String).includes(ingredient._id.toString())))
+          label.form-check-label(for=`ingr_${ingredient._id}`)= ingredient.name
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

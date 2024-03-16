@@ -1,8 +1,57 @@
+/* styles.css */
+
+/* Body styles */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header styles */
+h1, h2 {
+  color: #3498db;
+}
+
+/* Sidebar styles */
+.sidebar-nav {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.sidebar-nav a:hover {
+  color: #3498db;
+}
+
+/* Main content styles */
+.col-sm-10 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Links styles */
 a {
-  color: #00B7FF;
+  color: #3498db;
+}
+
+a:hover {
+  color: #2980b9;
 }

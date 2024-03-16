@@ -2,12 +2,18 @@ extends layout
 
 block content
   h1= title
+  p Welcome to #[em YourRestaurant], an inventory management app.
+
+  h1 Dynamic content
+
+  p The inventory has the following record counts:
+
   ul
-    li
-      a(href='/inventory/ingredients') Ingredients (#{ingredient_count})
-    li
-      a(href='/inventory/recipes') Recipes (#{recipe_count})
-    li
-      a(href='/inventory/restaurantwares') Restaurant Wares (#{restaurantware_count})
-    li
-      a(href='/inventory/suppliers') Suppliers (#{supplier_count})
+    li #[strong Ingredients:] !{ingredient_count}
+      a(href='/inventory/ingredients') View Ingredients
+    li #[strong Recipes:] !{recipe_count}
+      a(href='/inventory/recipes') View Recipes
+    li #[strong Restaurant Wares:] !{restaurantware_count}
+      a(href='/inventory/restaurantwares') View Restaurant Wares
+    li #[strong Suppliers:] !{supplier_count}
+      a(href='/inventory/suppliers') View Suppliers

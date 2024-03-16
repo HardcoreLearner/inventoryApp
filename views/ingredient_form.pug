@@ -2,19 +2,38 @@ extends layout
 
 block content
   h1= title
-  form(method="post")
-    label(for="name") Name:
-    input(type="text", name="name", value=ingredient.name)
-    label(for="type") Type:
-    input(type="text", name="type", value=ingredient.type)
-    label(for="cost") Cost:
-    input(type="text", name="cost", value=ingredient.cost)
-    label(for="quantity") Quantity:
-    input(type="text", name="quantity", value=ingredient.quantity)
-    label(for="critical") Critical:
-    input(type="text", name="critical", value=ingredient.critical)
-    label(for="supplier") Supplier:
-    select(name="supplier")
-      each supplier in suppliers
-        option(value=supplier._id, selected=(supplier._id.toString() === ingredient.supplier._id.toString()))= supplier.name
-    input(type="submit", value="Submit")
+
+  form(method='POST')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', placeholder='Restaurantware name' name='name' required value=(undefined===restaurantware ? '' : restaurantware.name) )
+    div.form-group
+      label Type:
+      //- Render select dropdown if there are existing types
+      if types.length > 0
+        select#type.form-control(name='type' required)
+          each type in types
+            option(value=type, selected=(undefined!==restaurantware && restaurantware.type === type))= type
+        div Or
+      //- Render new type input field
+      input#new_type.form-control(type='text', placeholder='New Type' name='new_type')
+    div.form-group
+      label(for='cost') Cost:
+      input#cost.form-control(type='number', placeholder='Restaurantware cost' name='cost' required value=(undefined===restaurantware ? '' : restaurantware.cost) )
+    div.form-group
+      label(for='stock') Stock:
+      input#stock.form-control(type='number', placeholder='Restaurantware stock' name='stock' required value=(undefined===restaurantware ? '' : restaurantware.stock) )
+    div.form-group
+      label(for='critical') Critical Level:
+      input#critical.form-control(type='number', placeholder='Critical level' name='critical' required value=(undefined===restaurantware ? '' : restaurantware.critical) )
+    div.form-group
+      label(for='supplier') Supplier:
+      select#supplier.form-control(name='supplier' required)
+        each supplier in suppliers
+          option(value=supplier._id, selected=(undefined!==restaurantware && restaurantware.supplier && restaurantware.supplier._id === supplier._id))= supplier.name
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

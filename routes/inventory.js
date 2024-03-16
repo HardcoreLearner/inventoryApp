@@ -15,9 +15,6 @@ router.get("/", ingredient_controller.index);
 // GET request for list of all Suppliers
 router.get("/suppliers", supplier_controller.supplier_list);
 
-// GET request for one Supplier
-router.get("/supplier/:id", supplier_controller.supplier_detail);
-
 // GET request for creating a Supplier. NOTE This must come before routes that display Supplier (uses id).
 router.get("/supplier/create", supplier_controller.supplier_create_get);
 
@@ -36,13 +33,13 @@ router.get("/supplier/:id/update", supplier_controller.supplier_update_get);
 // POST request to update Supplier
 router.post("/supplier/:id/update", supplier_controller.supplier_update_post);
 
+// GET request for one Supplier
+router.get("/supplier/:id", supplier_controller.supplier_detail);
+
 // Routes for Ingredients
 
 // GET request for list of all Ingredients
 router.get("/ingredients", ingredient_controller.ingredient_list);
-
-// GET request for one Ingredient
-router.get("/ingredient/:id", ingredient_controller.ingredient_detail);
 
 // GET request for creating an Ingredient. NOTE This must come before routes that display Ingredient (uses id).
 router.get("/ingredient/create", ingredient_controller.ingredient_create_get);
@@ -62,13 +59,13 @@ router.get("/ingredient/:id/update", ingredient_controller.ingredient_update_get
 // POST request to update Ingredient
 router.post("/ingredient/:id/update", ingredient_controller.ingredient_update_post);
 
+// GET request for one Ingredient
+router.get("/ingredient/:id", ingredient_controller.ingredient_detail);
+
 // Routes for Recipes
 
 // GET request for list of all Recipes
 router.get("/recipes", recipe_controller.recipe_list);
-
-// GET request for one Recipe
-router.get("/recipe/:id", recipe_controller.recipe_detail);
 
 // GET request for creating a Recipe. NOTE This must come before routes that display Recipe (uses id).
 router.get("/recipe/create", recipe_controller.recipe_create_get);
@@ -88,13 +85,13 @@ router.get("/recipe/:id/update", recipe_controller.recipe_update_get);
 // POST request to update Recipe
 router.post("/recipe/:id/update", recipe_controller.recipe_update_post);
 
+// GET request for one Recipe
+router.get("/recipe/:id", recipe_controller.recipe_detail);
+
 // Routes for RestaurantWares
 
 // GET request for list of all RestaurantWares
 router.get("/restaurantwares", restaurantware_controller.restaurantware_list);
-
-// GET request for one RestaurantWare
-router.get("/restaurantware/:id", restaurantware_controller.restaurantware_detail);
 
 // GET request for creating a RestaurantWare. NOTE This must come before routes that display RestaurantWare (uses id).
 router.get("/restaurantware/create", restaurantware_controller.restaurantware_create_get);
@@ -113,5 +110,8 @@ router.get("/restaurantware/:id/update", restaurantware_controller.restaurantwar
 
 // POST request to update RestaurantWare
 router.post("/restaurantware/:id/update", restaurantware_controller.restaurantware_update_post);
+
+// GET request for one RestaurantWare
+router.get("/restaurantware/:id", restaurantware_controller.restaurantware_detail);
 
 module.exports = router;

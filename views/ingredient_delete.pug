@@ -1,8 +1,12 @@
 extends layout
 
 block content
-  h1 Delete Ingredient
-  p Are you sure you want to delete #{ingredient.name}?
-  form(method="post")
-    input(type="hidden", name="ingredientid", value=ingredient._id)
-    input(type="submit", value="Delete")
+  h1 #{title}: #{ingredient.name}
+
+  p Do you really want to delete this Ingredient?
+
+  form(method='POST')
+    div.form-group
+      input#ingredientid.form-control(type='hidden', name='ingredientid', value=ingredient._id )
+
+    button.btn.btn-danger(type='submit') Delete Ingredient

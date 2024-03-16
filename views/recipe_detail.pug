@@ -9,3 +9,9 @@ block content
     ul
       each ingredient in recipe.ingr_list
         li= ingredient.name
+
+
+  hr
+  p
+    a.btn.btn-primary(href=recipe.url+'/update') Update Recipe
+    a.btn.btn-danger(href=recipe.url+'/delete') Delete Recipe

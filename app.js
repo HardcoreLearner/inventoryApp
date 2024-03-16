@@ -19,6 +19,7 @@ const limiter = RateLimit({
 });
 
 app.use(limiter);
+app.use(express.static('public'));
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
@@ -28,7 +29,6 @@ const mongoDB = process.env.MONGODB_URI;
 
 main().catch((err) => console.log(err));
 async function main() {
-  console.log(mongoDB);
   await mongoose.connect(mongoDB);
 }
 

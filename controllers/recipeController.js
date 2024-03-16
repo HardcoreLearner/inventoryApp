@@ -94,7 +94,7 @@ exports.recipe_delete_post = asyncHandler(async (req, res, next) => {
         return next(err);
     }
     // Delete object and redirect to the list of recipes.
-    await Recipe.findByIdAndRemove(req.body.recipeid);
+    await Recipe.findByIdAndDelete(req.body.recipeid);
     res.redirect("/inventory/recipes");
 });
 

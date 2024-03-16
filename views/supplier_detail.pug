@@ -5,3 +5,9 @@ block content
   p Name: #{supplier.name}
   p Address: #{supplier.address}
   p Telephone: #{supplier.tel}
+
+
+  hr
+  p
+    a.btn.btn-primary(href=supplier.url+'/update') Update Supplier
+    a.btn.btn-danger(href=supplier.url+'/delete') Delete Supplier

@@ -85,7 +85,7 @@ exports.supplier_delete_post = asyncHandler(async (req, res, next) => {
         return next(err);
     }
     // Delete object and redirect to the list of suppliers.
-    await Supplier.findByIdAndRemove(req.body.supplierid);
+    await Supplier.findByIdAndDelete(req.body.supplierid);
     res.redirect("/inventory/suppliers");
 });
 
